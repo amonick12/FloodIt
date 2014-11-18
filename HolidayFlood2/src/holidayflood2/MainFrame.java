@@ -22,7 +22,7 @@ public class MainFrame extends JFrame {
     
     MainFrame() throws ClassNotFoundException, InstantiationException, IllegalAccessException, UnsupportedLookAndFeelException {
         super("Holiday Flood");
-        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
         
         
@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
         mainPanel.frame = this;        
                 
         pack();
-	setResizable( true );
-	setVisible( true );
+	setResizable(true);
+	setVisible(true);
     }
 }

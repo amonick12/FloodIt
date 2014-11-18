@@ -21,7 +21,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class MainPanel extends JPanel implements ActionListener {
 
-    public final static int SQUARE_SIZE = 30;
+    public final static int SQUARE_SIZE = 50;
     public static int gridSize = 10;
         
     public final static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.ORANGE };

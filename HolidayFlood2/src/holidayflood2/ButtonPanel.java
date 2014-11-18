@@ -29,7 +29,7 @@ class ButtonPanel extends JPanel {
         for( int i = 0; i < MainPanel.COLORS.length; i++ ) {    
             
             JButton button = new JButton();
-            button.setPreferredSize( new Dimension( 10, 40 ) );
+            button.setPreferredSize( new Dimension( 10, 50 ) );
             button.setBackground( COLORS[i] );
             add( button );
             colorButtons[i] = button;
