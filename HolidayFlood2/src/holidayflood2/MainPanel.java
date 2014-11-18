@@ -81,10 +81,11 @@ public class MainPanel extends JPanel implements ActionListener {
             if (choice == 2) { gridSize = 12; }
                     
             //new game reset properties
-            optionPanel.curCount.setText("Turn - 0");
+            optionPanel.curCount.setText("Turn: 0");
             gamePanel.turnCount = 0;
             gamePanel.init();
             frame.pack();
+            
 	} else {
             for( int i = 0; i < buttonPanel.colorButtons.length; i++ ) {
 		// determine the clicked color and start to process with it

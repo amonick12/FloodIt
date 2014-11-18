@@ -45,7 +45,7 @@ public class GamePanel extends JPanel {
             fill( 0, 0, referenceColor, newColor );
             turnCount++;
             String stringCount = Integer.toString(turnCount);
-            optionPanel.curCount.setText("Turn - "+ stringCount);
+            optionPanel.curCount.setText("Turn: "+ stringCount);
 	}
         
         //check if grid is filled
@@ -65,6 +65,8 @@ public class GamePanel extends JPanel {
             JOptionPane.showMessageDialog( this, "Congratulations. You needed " + turnCount + " turns.", "Completed", JOptionPane.PLAIN_MESSAGE );
             
             //restart the game
+            optionPanel.curCount.setText("Turn: 0");
+            turnCount = 0;
             init();
 	}
     }

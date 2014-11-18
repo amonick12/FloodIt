@@ -33,7 +33,7 @@ public class OptionPanel extends JPanel {
         difficulty.setSelectedIndex(2);
         add(difficulty);
         
-        curCount = new JLabel("Turn - 0");
+        curCount = new JLabel("Turn: 0");
         add(curCount);
     }
 }
