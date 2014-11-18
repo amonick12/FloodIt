@@ -6,10 +6,12 @@
 
 package holidayflood2;
 
+import static holidayflood2.MainPanel.COLORS;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.Random;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -30,7 +32,7 @@ public class GamePanel extends JPanel {
 	// Populate the grid with random colored squares
 	for( int row = 0; row < MainPanel.gridSize; row++ ) {
             for( int col = 0; col < MainPanel.gridSize; col++ ) {
-                grid[ row ][ col ] = new Cell( MainPanel.getRandomColor() );
+                grid[ row ][ col ] = new Cell( getRandomColor() );
             }
 	}
     }
@@ -115,5 +117,9 @@ public class GamePanel extends JPanel {
             x = 0;
             y += MainPanel.SQUARE_SIZE;
 	}
+    }
+    
+    public static Color getRandomColor() {
+	return COLORS[ new Random().nextInt( COLORS.length ) ];
     }
 }

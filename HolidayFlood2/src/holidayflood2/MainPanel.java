@@ -51,6 +51,7 @@ public class MainPanel extends JPanel implements ActionListener {
         //optionPanel.difficulty.addActionListener(this);
         add(optionPanel, BorderLayout.PAGE_END);
         
+        //let gamePanel change the optionPanel turn label
         gamePanel.optionPanel = optionPanel;
         
         //buttonPanel
@@ -63,12 +64,6 @@ public class MainPanel extends JPanel implements ActionListener {
         
     }
     
-    public static Color getRandomColor() {
-	return COLORS[ new Random().nextInt( COLORS.length ) ];
-    }
-    
-
-
     @Override
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
