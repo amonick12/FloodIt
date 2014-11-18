@@ -22,7 +22,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class MainPanel extends JPanel implements ActionListener {
 
     public final static int SQUARE_SIZE = 30;
-    public static int gridSize = 12;
+    public static int gridSize = 10;
         
     public final static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.ORANGE };
 
@@ -35,15 +35,15 @@ public class MainPanel extends JPanel implements ActionListener {
         
     public MainPanel()  {
         //Container content = getContentPane();
-        setBackground( Color.WHITE );
+        setBackground(Color.GRAY);
         BorderLayout layout = new BorderLayout();
-        layout.setVgap( 10 );
-        setLayout( layout );
+        layout.setVgap(5);
+        setLayout(layout);
         
         //gamePanel
         gamePanel = new GamePanel();
 	gamePanel.init();
-	add( gamePanel, BorderLayout.CENTER );
+	add(gamePanel, BorderLayout.CENTER);
         
         //optionPanel
 	optionPanel = new OptionPanel();
@@ -59,7 +59,7 @@ public class MainPanel extends JPanel implements ActionListener {
         for( int i = 0; i < COLORS.length; i++ ) {    
             buttonPanel.colorButtons[i].addActionListener(this);
         }
-	add( buttonPanel, BorderLayout.PAGE_START );
+	add(buttonPanel, BorderLayout.PAGE_START);
         
         
     }
@@ -68,23 +68,28 @@ public class MainPanel extends JPanel implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         Object source = e.getSource();
 
-        if( source == optionPanel.newGameButton ) {
+        if(source == optionPanel.newGameButton) {
             // Needs to resize the frame
             int choice = optionPanel.difficulty.getSelectedIndex();
+            int curGridSize = gridSize;
             if (choice == 0) { gridSize = 8; }
             if (choice == 1) { gridSize = 10; }
             if (choice == 2) { gridSize = 12; }
-                    
+               
             //new game reset properties
-            optionPanel.curCount.setText("Turn: 0");
+            optionPanel.curTurnCount.setText("Turn: 0");
             gamePanel.turnCount = 0;
             gamePanel.init();
-            frame.pack();
             
+            //repack the frame if gridSize changed
+            if (curGridSize != gridSize) {
+                frame.pack();
+            }
+        
 	} else {
-            for( int i = 0; i < buttonPanel.colorButtons.length; i++ ) {
+            for(int i = 0; i < buttonPanel.colorButtons.length; i++) {
 		// determine the clicked color and start to process with it
-		if( source == buttonPanel.colorButtons[i] ) {
+		if(source == buttonPanel.colorButtons[i]) {
                     gamePanel.process( COLORS[i] );
                     break;
 		}

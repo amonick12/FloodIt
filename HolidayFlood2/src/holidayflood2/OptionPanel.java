@@ -21,19 +21,19 @@ public class OptionPanel extends JPanel {
     JButton newGameButton;
     JComboBox difficulty;
     String[] gridChoices = {"8x8", "10x10", "12x12"};
-    JLabel curCount;
+    JLabel curTurnCount;
     
     
     OptionPanel() {
             
+        difficulty = new JComboBox(gridChoices);
+        difficulty.setSelectedIndex(1);
+        add(difficulty);
+        
         newGameButton = new JButton("New Game");
 	add(newGameButton);
         
-        difficulty = new JComboBox(gridChoices);
-        difficulty.setSelectedIndex(2);
-        add(difficulty);
-        
-        curCount = new JLabel("Turn: 0");
-        add(curCount);
+        curTurnCount = new JLabel("Turn: 0");
+        add(curTurnCount);
     }
 }
