@@ -28,7 +28,7 @@ public class OptionPanel extends JPanel {
 	add( newGameButton );
         
         difficulty = new JComboBox(gridChoices);
-        difficulty.setSelectedIndex(1);
+        difficulty.setSelectedIndex(2);
         add(difficulty);
     }
 }

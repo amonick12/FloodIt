@@ -19,13 +19,15 @@ import javax.swing.JPanel;
  */
 public class GamePanel extends JPanel {
     
-    Cell[][] grid = new Cell[ MainPanel.gridSize ][ MainPanel.gridSize ];
+    Cell[][] grid;
 
     int turnCount = 0;
     
     public void init() {
+        grid = new Cell[ MainPanel.gridSize ][ MainPanel.gridSize ];
+
 	// Populate the grid with random colored squares
-	for( int row = 0; row < grid.length; row++ ) {
+	for( int row = 0; row < MainPanel.gridSize; row++ ) {
             for( int col = 0; col < MainPanel.gridSize; col++ ) {
                 grid[ row ][ col ] = new Cell( MainPanel.getRandomColor() );
             }
@@ -45,7 +47,7 @@ public class GamePanel extends JPanel {
         
         //check if grid is filled
         boolean completed = true;
-	TEST: for( int row = 0; row < grid.length; row++ ) {
+	TEST: for( int row = 0; row < MainPanel.gridSize; row++ ) {
                 for( int col = 0; col < MainPanel.gridSize; col++ ) {
                     if( grid[ row ][ col ].color != grid[ 0 ][ 0 ].color ) {
 			completed = false;

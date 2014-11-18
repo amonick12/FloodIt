@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
         mainPanel.frame = this;        
                 
         pack();
-	setResizable( false );
+	setResizable( true );
 	setVisible( true );
     }
 }
