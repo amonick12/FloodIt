@@ -26,7 +26,7 @@ public class MainPanel extends JPanel implements ActionListener {
         
     public final static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.MAGENTA, Color.ORANGE };
 
-    //Panel
+    //Panels
     private final ButtonPanel buttonPanel;
     private final GamePanel gamePanel;
     private final OptionPanel optionPanel;    
@@ -50,6 +50,8 @@ public class MainPanel extends JPanel implements ActionListener {
         optionPanel.newGameButton.addActionListener(this);
         //optionPanel.difficulty.addActionListener(this);
         add(optionPanel, BorderLayout.PAGE_END);
+        
+        gamePanel.optionPanel = optionPanel;
         
         //buttonPanel
         buttonPanel = new ButtonPanel();
@@ -78,7 +80,9 @@ public class MainPanel extends JPanel implements ActionListener {
             if (choice == 1) { gridSize = 10; }
             if (choice == 2) { gridSize = 12; }
                     
-
+            //new game reset properties
+            optionPanel.curCount.setText("Turn - 0");
+            gamePanel.turnCount = 0;
             gamePanel.init();
             frame.pack();
 	} else {

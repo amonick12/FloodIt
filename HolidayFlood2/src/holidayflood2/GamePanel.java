@@ -22,6 +22,7 @@ public class GamePanel extends JPanel {
     Cell[][] grid;
 
     int turnCount = 0;
+    OptionPanel optionPanel;
     
     public void init() {
         grid = new Cell[ MainPanel.gridSize ][ MainPanel.gridSize ];
@@ -43,6 +44,8 @@ public class GamePanel extends JPanel {
         if( referenceColor != newColor ) {
             fill( 0, 0, referenceColor, newColor );
             turnCount++;
+            String stringCount = Integer.toString(turnCount);
+            optionPanel.curCount.setText("Turn - "+ stringCount);
 	}
         
         //check if grid is filled
