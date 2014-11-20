@@ -26,6 +26,7 @@ public class GamePanel extends JPanel {
     int turnCount = 0;
     //to access the optionPanel turn label
     OptionPanel optionPanel;
+    MainPanel mainPanel;
     
     public void init() {
         grid = new Cell[ MainPanel.gridSize ][ MainPanel.gridSize ];
@@ -65,12 +66,17 @@ public class GamePanel extends JPanel {
         //display message if game was completed
         if( completed ) {
             repaint();
-            JOptionPane.showMessageDialog( this, "Congratulations. You needed " + turnCount + " turns.", "Completed", JOptionPane.PLAIN_MESSAGE );
+            
+            mainPanel.timer.stop();
+            int endTime = mainPanel.i;
+            
+            JOptionPane.showMessageDialog( this, "Congratulations, you finished in " + endTime + " seconds. You needed " + turnCount + " turns.", "Completed", JOptionPane.PLAIN_MESSAGE );
             
             //restart the game
             optionPanel.curTurnCount.setText("Turn: 0");
+            optionPanel.timerLabel.setText("Time: 0");
             turnCount = 0;
-            init();
+            //init();
 	}
     }
 

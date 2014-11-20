@@ -22,10 +22,14 @@ public class OptionPanel extends JPanel {
     JComboBox difficulty;
     String[] gridChoices = {"8x8", "10x10", "12x12"};
     JLabel curTurnCount;
+    JLabel timerLabel;
     
     
     OptionPanel() {
-            
+           
+        timerLabel = new JLabel("Time: 0");
+        add(timerLabel);
+        
         difficulty = new JComboBox(gridChoices);
         difficulty.setSelectedIndex(1);
         add(difficulty);
@@ -35,5 +39,7 @@ public class OptionPanel extends JPanel {
         
         curTurnCount = new JLabel("Turn: 0");
         add(curTurnCount);
+        
+        
     }
 }
