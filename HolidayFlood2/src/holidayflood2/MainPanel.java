@@ -22,10 +22,10 @@ import javax.swing.UnsupportedLookAndFeelException;
 
 public class MainPanel extends JPanel implements ActionListener {
 
-    public final static int SQUARE_SIZE = 50;
+    public final static int SQUARE_SIZE = 40;
     public static int gridSize = 10;
         
-    public final static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+    public final static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
 
     //Panels
     private final ButtonPanel buttonPanel;
@@ -84,8 +84,8 @@ public class MainPanel extends JPanel implements ActionListener {
             int choice = optionPanel.difficulty.getSelectedIndex();
             int curGridSize = gridSize;
             if (choice == 0) { gridSize = 8; }
-            if (choice == 1) { gridSize = 10; }
-            if (choice == 2) { gridSize = 12; }
+            if (choice == 1) { gridSize = 12; }
+            if (choice == 2) { gridSize = 16; }
                
             //new game reset properties
             optionPanel.curTurnCount.setText("Turn: 0");

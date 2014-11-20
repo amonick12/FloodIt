@@ -68,7 +68,7 @@ public class GamePanel extends JPanel {
             repaint();
             
             mainPanel.timer.stop();
-            int endTime = mainPanel.i;
+            int endTime = mainPanel.i-1;
             
             JOptionPane.showMessageDialog( this, "Congratulations, you finished in " + endTime + " seconds. You needed " + turnCount + " turns.", "Completed", JOptionPane.PLAIN_MESSAGE );
             

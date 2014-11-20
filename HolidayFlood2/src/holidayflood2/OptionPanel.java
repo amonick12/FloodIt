@@ -20,7 +20,7 @@ public class OptionPanel extends JPanel {
     
     JButton newGameButton;
     JComboBox difficulty;
-    String[] gridChoices = {"8x8", "10x10", "12x12"};
+    String[] gridChoices = {"8x8", "12x12", "16x16"};
     JLabel curTurnCount;
     JLabel timerLabel;
     
