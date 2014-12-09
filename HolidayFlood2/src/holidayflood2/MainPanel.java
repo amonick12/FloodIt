@@ -25,10 +25,14 @@ public class MainPanel extends JPanel implements ActionListener {
     public final static int SQUARE_SIZE = 40;
     public static int gridSize = 10;
         
-    public final static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+
+    public static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+    public static Color[] COLORS1 = new Color[] { Color.BLACK, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+    public static Color[] COLORS2 = new Color[] { Color.GREEN, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+    public static Color[] COLORS3 = new Color[] { Color.PINK, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
 
     //Panels
-    private final ButtonPanel buttonPanel;
+    private ButtonPanel buttonPanel;
     private final GamePanel gamePanel;
     private final OptionPanel optionPanel;    
     //Timer
@@ -37,6 +41,7 @@ public class MainPanel extends JPanel implements ActionListener {
     int i = 0;
     
     MainFrame frame;
+    int index;
         
     public MainPanel()  {
         //Container content = getContentPane();
@@ -65,6 +70,16 @@ public class MainPanel extends JPanel implements ActionListener {
         //let game panel stop the timer
         gamePanel.mainPanel = this;
         
+        
+        
+        
+    }
+    
+    public void setColors(int index) {
+        if (index == 0) { COLORS = COLORS1; }
+        if (index == 1) { COLORS = COLORS2; }
+        if (index == 2) { COLORS = COLORS3; }
+    
         //buttonPanel
         buttonPanel = new ButtonPanel();
         for( int i = 0; i < COLORS.length; i++ ) {    

@@ -11,7 +11,9 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.io.File;
 import java.util.Random;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -70,7 +72,48 @@ public class GamePanel extends JPanel {
             mainPanel.timer.stop();
             int endTime = mainPanel.i-1;
             
-            JOptionPane.showMessageDialog( this, "Congratulations, you finished in " + endTime + " seconds. You needed " + turnCount + " turns.", "Completed", JOptionPane.PLAIN_MESSAGE );
+            JFrame frame = new JFrame("InputDialog Example #1");
+
+            // prompt the user to enter their name
+            String name = JOptionPane.showInputDialog(frame, "What's your name?");
+
+            // get the user's input. note that if they press Cancel, 'name' will be null
+            System.out.printf("The user's name is '%s'.\n", name);
+
+            //System.exit(0);
+            String scoreCards[] = new String[100];
+            
+            String scoreCard;
+            scoreCard = name+" finished in "+endTime+" seconds and needed "+turnCount+" turns";
+            scoreCards[0] = scoreCard;
+            String filename = "highscore.xml";
+
+            XML_240 x = new XML_240();
+            x.openReaderXML(filename);
+            int index = 1;
+            String ss = (String) x.ReadObject();
+            //System.out.println(ss);
+            while(!ss.matches("end")) {
+                scoreCards[index] = ss;
+                ss = (String) x.ReadObject();
+                index++;
+            }
+            
+            x.closeReaderXML();
+            
+            x.openWriterXML(filename);
+            
+            for (int i = 0; i < index; i++) {
+                x.writeObject(scoreCards[i]);
+            }
+            x.writeObject("end");
+            x.closeWriterXML();
+            String message = "Congratulations, " + name + "! You finished in " + endTime + " second and you needed " + turnCount + " turns.\n\n\t";
+            for (int j = 1; j < index; j++) {
+                message += scoreCards[j];
+                message += "\n\t";
+            }
+            JOptionPane.showMessageDialog( this, message, "Complete", JOptionPane.PLAIN_MESSAGE );
             
             //restart the game
             optionPanel.curTurnCount.setText("Turn: 0");
