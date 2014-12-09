@@ -19,8 +19,8 @@ public class StartPanel extends JPanel
     //JPanel startPanel = new JPanel();
     //MainFrame frame;
     JLabel title = new JLabel("Holiday Flood");
-    JButton halloweenButton = new JButton("Halloween");
-    JButton christmasButton = new JButton("Christmans");
+    JButton halloweenButton = new JButton("Christmans");
+    JButton christmasButton = new JButton("Valentine's Day");
     JButton easterButton = new JButton("Easter");
     //boolean drawMainPanel = false;
     //String selectedHoliday = "";

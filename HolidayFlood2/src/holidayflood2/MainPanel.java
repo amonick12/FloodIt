@@ -27,9 +27,27 @@ public class MainPanel extends JPanel implements ActionListener {
         
 
     public static Color[] COLORS = new Color[] { Color.BLUE, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
-    public static Color[] COLORS1 = new Color[] { Color.BLACK, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
-    public static Color[] COLORS2 = new Color[] { Color.GREEN, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
-    public static Color[] COLORS3 = new Color[] { Color.PINK, Color.RED, Color.YELLOW, Color.GREEN, Color.MAGENTA, Color.ORANGE };
+    public static Color[] COLORS1 = new Color[] { 
+                new Color(159,0,15), 
+                new Color(255,0,0), 
+                new Color(78,146,88), 
+                new Color(76,196,23), 
+                new Color(76,70,70), 
+                new Color(255,255,204) };
+    public static Color[] COLORS2 = new Color[] { 
+                new Color(255, 127, 80),
+                new Color(228, 27, 23),
+                new Color(153, 0, 18),
+                new Color(246, 53, 138),
+                new Color(125, 27, 126),
+                new Color(253, 215, 228) };
+    public static Color[] COLORS3 = new Color[] { 
+                new Color(224, 176, 255),
+                new Color(189, 237, 255),
+                new Color(204, 251, 93),
+                new Color(250, 175, 190),
+                new Color(255, 255, 194),
+                new Color(248, 114, 23) };
 
     //Panels
     private ButtonPanel buttonPanel;
@@ -59,11 +77,6 @@ public class MainPanel extends JPanel implements ActionListener {
         optionPanel.newGameButton.addActionListener(this);
         //optionPanel.difficulty.addActionListener(this);
         add(optionPanel, BorderLayout.PAGE_END);
-        
-        
-        
-        
-        
         
     }
     
