@@ -33,7 +33,7 @@ public class MainPanel extends JPanel implements ActionListener {
 
     //Panels
     private ButtonPanel buttonPanel;
-    private final GamePanel gamePanel;
+    private GamePanel gamePanel;
     private final OptionPanel optionPanel;    
     //Timer
     Timer timer;
@@ -52,12 +52,7 @@ public class MainPanel extends JPanel implements ActionListener {
         
         delay = 1000; //milliseconds
         timer = new Timer(delay, this);
-        timer.start();
         
-        //gamePanel
-        gamePanel = new GamePanel();
-	gamePanel.init();
-	add(gamePanel, BorderLayout.CENTER);
         
         //optionPanel
 	optionPanel = new OptionPanel();
@@ -65,16 +60,14 @@ public class MainPanel extends JPanel implements ActionListener {
         //optionPanel.difficulty.addActionListener(this);
         add(optionPanel, BorderLayout.PAGE_END);
         
-        //let gamePanel change the optionPanel turn label
-        gamePanel.optionPanel = optionPanel;
-        //let game panel stop the timer
-        gamePanel.mainPanel = this;
+        
         
         
         
         
     }
     
+    //called from mainframe
     public void setColors(int index) {
         if (index == 0) { COLORS = COLORS1; }
         if (index == 1) { COLORS = COLORS2; }
@@ -87,7 +80,17 @@ public class MainPanel extends JPanel implements ActionListener {
         }
 	add(buttonPanel, BorderLayout.PAGE_START);
         
+        timer.start();
         
+        //gamePanel
+        gamePanel = new GamePanel();
+	gamePanel.init();
+	add(gamePanel, BorderLayout.CENTER);
+        
+        //let gamePanel change the optionPanel turn label
+        gamePanel.optionPanel = optionPanel;
+        //let game panel stop the timer
+        gamePanel.mainPanel = this;
     }
     
     @Override
